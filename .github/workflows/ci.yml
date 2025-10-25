@@ -1,0 +1,33 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整的git历史记录
+
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.13'
+
+      - run: uv sync
+
+      - run: uv run mkdocs gh-deploy --force
+        env:
+          ANALYTICS_PROVIDER: ${{ secrets.ANALYTICS_PROVIDER }}
+          GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+          CLARITY_PROJECT_ID: ${{ secrets.CLARITY_PROJECT_ID }}
