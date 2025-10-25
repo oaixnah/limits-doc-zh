@@ -1,0 +1,80 @@
+site_name: limits
+site_url: https://limits.oaix.tech/
+copyright: <a href="https://github.com/oaixnah" target="_blank">译者 oaixnah</a>
+repo_name: alisaifee/limits
+repo_url: https://github.com/alisaifee/limits
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+    - content.code.select
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep purple
+#      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+extra_javascript:
+  - javascripts/mathjax.js
+  - javascripts/tex-mml-chtml.js
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: Page contents
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      pygments_lang_class: true
+  - pymdownx.extra
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+plugins:
+  - search
+  - exclude:
+      glob:
+        - '*_en.md'
+nav:
+  - 介绍: index.md
+  - 安装: installation.md
+  - 快速开始: quickstart.md
+  - 语法格式: format.md
+  - 限速策略: strategies.md
+  - 存储后端: storage.md
+  - 异步支持: async.md
+  - 自定义存储后端: custom-storage.md

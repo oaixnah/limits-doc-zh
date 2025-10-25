@@ -1,0 +1,10 @@
+[project]
+name = "limits-doc-zh"
+version = "0.1.0"
+description = "limits 中文文档"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mkdocs-exclude>=1.0.2",
+    "mkdocs-material>=9.6.22",
+]
