@@ -24,25 +24,22 @@ theme:
     - content.code.copy
     - content.code.annotate
   palette:
-    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       primary: deep purple
-#      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
+  custom_dir: docs/.overrides
 extra_javascript:
   - javascripts/mathjax.js
   - javascripts/tex-mml-chtml.js
@@ -69,6 +66,11 @@ plugins:
   - exclude:
       glob:
         - '*_en.md'
+extra:
+  analytics:
+    provider: !ENV ANALYTICS_PROVIDER
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    clarity: !ENV CLARITY_PROJECT_ID
 nav:
   - 介绍: index.md
   - 安装: installation.md
